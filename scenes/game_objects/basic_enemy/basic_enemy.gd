@@ -2,12 +2,6 @@ extends CharacterBody2D
 
 const MAX_SPEED = 40
 
-@onready var health_component: HealthComponent = $HealthComponent
-
-
-func _ready():
-	$Area2D.area_entered.connect(on_area_entered)
-
 
 func _process(_delta):
 	var direction = get_direction_to_player()
@@ -22,7 +16,3 @@ func get_direction_to_player():
 		return (player_node.global_position - global_position).normalized()
 
 	return Vector2.ZERO
-
-
-func on_area_entered(_other_area: Area2D):
-	health_component.damage(100)
