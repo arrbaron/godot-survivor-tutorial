@@ -1,13 +1,20 @@
 extends Node
 
 const MAX_RANGE = 150
+const MINIMUM_WAIT_TIME = .2
 
 @export var sword_ability: PackedScene
+
+@onready var timer: Timer = $Timer
+
 var damage = 5
+var base_wait_time: float
 
 
 func _ready():
-	$Timer.timeout.connect(on_timer_timeout)
+	base_wait_time = timer.wait_time
+	timer.timeout.connect(on_timer_timeout)
+	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 
 func on_timer_timeout():
@@ -41,3 +48,14 @@ func on_timer_timeout():
 
 	var enemy_direction = (enemies[0].global_position - sword_instance.global_position)
 	sword_instance.rotation = enemy_direction.angle()
+
+func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+	if upgrade.id != 'sword_rate':
+		return
+	
+	var percent_reduction = current_upgrades['sword_rate']['quantity'] * .5
+	timer.wait_time = max(base_wait_time * (1 - percent_reduction), MINIMUM_WAIT_TIME)
+	timer.start()
+
+	print(timer.wait_time)
+
