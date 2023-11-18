@@ -12,7 +12,6 @@ func _ready():
 
 
 func damage(damage_amount: int):
-	print(damage_amount, current_health)
 	current_health = max(current_health - damage_amount, 0)
 	Callable(check_death).call_deferred()
 
