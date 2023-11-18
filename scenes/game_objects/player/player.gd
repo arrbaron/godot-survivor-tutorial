@@ -3,9 +3,9 @@ extends CharacterBody2D
 const MAX_SPEED := 120
 const ACCELERATION_SMOOTHING = 25
 
-@onready var collision_area: Area2D = $CollisionArea2D
-@onready var health_component: HealthComponent = $HealthComponent
-@onready var damage_interval_timer: Timer = $DamageIntervalTimer
+@export var collision_area: Area2D
+@export var health_component: HealthComponent
+@export var damage_interval_timer: Timer
 
 var number_colliding_bodies := 0
 
