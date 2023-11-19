@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 const MAX_SPEED := 120
@@ -41,7 +42,6 @@ func check_deal_damage():
 
 	health_component.damage(1)
 	damage_interval_timer.start()
-	print(health_component.current_health)
 
 
 func on_body_entered(_other_body: Node2D):

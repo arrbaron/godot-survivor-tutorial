@@ -1,3 +1,4 @@
+class_name VialDropComponent
 extends Node
 
 @export_range(0, 100) var drop_percent: float = .5

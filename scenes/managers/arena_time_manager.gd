@@ -1,3 +1,4 @@
+class_name ArenaTimeManager
 extends Node
 
 @onready var timer = $Timer

@@ -1,3 +1,4 @@
+class_name ExperienceBar
 extends CanvasLayer
 
 @export var experience_manager: ExperienceManager

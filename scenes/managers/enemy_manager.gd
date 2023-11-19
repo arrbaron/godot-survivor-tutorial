@@ -1,3 +1,4 @@
+class_name EnemyManager
 extends Node
 
 const SPAWN_RADIUS = 350

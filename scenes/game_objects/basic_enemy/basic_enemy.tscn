@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://mirolqyx7ngi"]
+[gd_scene load_steps=9 format=3 uid="uid://mirolqyx7ngi"]
 
 [ext_resource type="Texture2D" uid="uid://bdephk4ukltoe" path="res://scenes/game_objects/basic_enemy/basic_enemy.png" id="1_1dl4w"]
 [ext_resource type="Script" path="res://scenes/game_objects/basic_enemy/basic_enemy.gd" id="1_57ikd"]
 [ext_resource type="PackedScene" uid="uid://0qylu8rru03" path="res://scenes/components/health_component.tscn" id="2_1br2i"]
 [ext_resource type="PackedScene" uid="uid://bgfv8ma341m0k" path="res://scenes/components/vial_drop_component.tscn" id="3_cvmto"]
 [ext_resource type="PackedScene" uid="uid://bymf0vhqhv8dq" path="res://scenes/components/hurtbox_component.tscn" id="4_jtkp1"]
+[ext_resource type="PackedScene" uid="uid://bc8ojvpn54m5c" path="res://scenes/components/health_bar_component.tscn" id="6_e762o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fw724"]
 radius = 12.0
@@ -37,3 +38,6 @@ offset = Vector2(0, -8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_yumoj")
+
+[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_e762o")]
+health_component = NodePath("../HealthComponent")

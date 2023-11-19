@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca5c5tkyv568e"]
+[gd_scene load_steps=9 format=3 uid="uid://ca5c5tkyv568e"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/player/player.gd" id="1_1yujp"]
 [ext_resource type="Texture2D" uid="uid://jwvp418xp4bs" path="res://scenes/game_objects/player/player.png" id="1_rns22"]
 [ext_resource type="PackedScene" uid="uid://0qylu8rru03" path="res://scenes/components/health_component.tscn" id="2_7c504"]
 [ext_resource type="PackedScene" uid="uid://cp5e8u3ea6ll7" path="res://scenes/abilities/sword_ability_controller/sword_ability_controller.tscn" id="2_jggxa"]
+[ext_resource type="PackedScene" uid="uid://bc8ojvpn54m5c" path="res://scenes/components/health_bar_component.tscn" id="4_dawnk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sgc01"]
 radius = 32.0
@@ -31,6 +32,9 @@ damage_interval_timer = NodePath("DamageIntervalTimer")
 [node name="DamageIntervalTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_dawnk")]
+health_component = NodePath("../HealthComponent")
 
 [node name="PickupArea2D" type="Area2D" parent="."]
 collision_layer = 16

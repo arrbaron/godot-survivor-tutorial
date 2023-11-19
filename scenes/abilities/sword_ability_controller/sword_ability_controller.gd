@@ -1,3 +1,4 @@
+class_name SwordAbilityController
 extends Node
 
 const MAX_RANGE = 150
@@ -60,5 +61,4 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 	timer.wait_time = max(base_wait_time * (1 - percent_reduction), MINIMUM_WAIT_TIME)
 	timer.start()
 
-	print(timer.wait_time)
 
