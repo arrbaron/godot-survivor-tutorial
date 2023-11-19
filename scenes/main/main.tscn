@@ -1,16 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://f1ct6pm60nuy"]
+[gd_scene load_steps=12 format=3 uid="uid://f1ct6pm60nuy"]
 
 [ext_resource type="PackedScene" uid="uid://drli7r7yf7qr6" path="res://scenes/ui/arena_time_ui.tscn" id="1_5wijc"]
 [ext_resource type="TileSet" uid="uid://d0hawyskvb7vh" path="res://resources/tileset.tres" id="1_iipv0"]
 [ext_resource type="PackedScene" uid="uid://ca5c5tkyv568e" path="res://scenes/game_objects/player/player.tscn" id="1_mlwyk"]
 [ext_resource type="PackedScene" uid="uid://bisu68fbnualv" path="res://scenes/managers/enemy_manager.tscn" id="1_nrcbl"]
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_v8n5i"]
 [ext_resource type="PackedScene" uid="uid://crwocdqtpm3pt" path="res://scenes/ui/experience_bar.tscn" id="2_2txqh"]
 [ext_resource type="PackedScene" uid="uid://caexria666ydq" path="res://scenes/managers/arena_time_manager.tscn" id="2_16qcw"]
+[ext_resource type="PackedScene" uid="uid://cjx1efee2e6i6" path="res://scenes/ui/end_screen.tscn" id="2_ydpbg"]
 [ext_resource type="PackedScene" uid="uid://bylx2pgj7y7i" path="res://scenes/game_objects/game_camera/game_camera.tscn" id="3_tts74"]
 [ext_resource type="PackedScene" uid="uid://0a0slus1b2i0" path="res://scenes/managers/experience_manager.tscn" id="4_3tl3m"]
 [ext_resource type="PackedScene" uid="uid://bbpcnuoif0ki0" path="res://scenes/managers/upgrade_manager.tscn" id="6_3xsud"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_v8n5i")
+end_screen_scene = ExtResource("2_ydpbg")
 
 [node name="ArenaTimeUI" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_5wijc")]
 arena_time_manager = NodePath("../ArenaTimeManager")
@@ -38,6 +42,7 @@ layer_0/tile_data = PackedInt32Array(262150, 0, 4, 196614, 0, 4, 196615, 65536, 
 y_sort_enabled = true
 
 [node name="Player" parent="Entities" instance=ExtResource("1_mlwyk")]
+unique_name_in_owner = true
 position = Vector2(155, 100)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
